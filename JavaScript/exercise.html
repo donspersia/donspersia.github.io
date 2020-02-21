@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>JavaScript Lessons 10</title>
+        <meta name="description" content="JavaScript Lessons">
+        <script>
+            var summ = 0;
+            function clickThis(returnMe) {
+                summ++;
+                returnMe.innerHTML = "Нажатие " + summ + " раз"
+            }
+        </script>
+    </head>
+    <body>
+        <h1 onmouseover="clickThis(this)">Нажатие 0 раз</h1>        
+    </body>
+</html>
