@@ -16,33 +16,33 @@
         <div id="app" style="margin-top: 25px;">
           <div class="form">
             <form class="" action="index.html" method="post">
-              <div><p class="h4">Форма</p></div>
+              <div><p class="h4">Contact</p></div>
               <div class="form-row">
                   <div class="col-md-5 mb-3">
-                      <label>Имя</label>
+                      <label>Name</label>
                       <input type="text" class="form-control" v-model="form_name" required>
                   </div>
                   <div class="col-md-5 mb-3">
-                    <label>Номер телефона:</label>
+                    <label>Number phone:</label>
                     <!-- <select id="countries_select" class="form-control bfh-countries" data-country="TJ"></select> Нужно будет передать:' data-country="countries_select" ' к "input" -->
                     <input type="tel" class="form-control bfh-phone" v-model="form_phone" maxlength="13" data-format="+dddddddddddd">
-                    <div class="invalid-feedback" v-if="check_valid_phone() == 'is-invalid'"> Этот номер уже используется</div>
+                    <div class="invalid-feedback" v-if="check_valid_phone() == 'is-invalid'"> This number is use</div>
                   </div>
 
                   <div class="col-md-5 mb-3">
-                      <label>Эмейл:</label>
-                      <input type="email" class="form-control" v-model="form_email" placeholder="Например: babaevpetro@gmail.com" required>
+                      <label>Email:</label>
+                      <input type="email" class="form-control" v-model="form_email" placeholder="Example: babaevpetro@gmail.com" required>
                   </div>
                   <div class="col-md-5 mb-3">
-                      <label>Адрес</label>
+                      <label>Address</label>
                       <input type="text" class="form-control" v-model="form_address" required>
                   </div>
 
                   <!-- /*** Сохранить ***/ -->
                   <div class="col-md-2 mb-3 d-flex flex-column">
-                      <button class="btn btn-success mt-auto" v-if="check_valid_phone() !== 'is-invalid' && form_name !== '' && form_phone !== '' " @click="save_item()">Сохранить</button>
-                      <button class="btn btn-secondary mt-auto is-invalid" v-if="check_valid_phone() == 'is-invalid' ||  form_name == '' || form_phone == '' ">Сохранить</button>
-                      <div class="invalid-feedback w-100" v-if="check_valid_phone() == 'is-invalid' "> Ошибка </div>
+                      <button class="btn btn-success mt-auto" v-if="check_valid_phone() !== 'is-invalid' && form_name !== '' && form_phone !== '' " @click="save_item()">Save</button>
+                      <button class="btn btn-secondary mt-auto is-invalid" v-if="check_valid_phone() == 'is-invalid' ||  form_name == '' || form_phone == '' ">Save</button>
+                      <div class="invalid-feedback w-100" v-if="check_valid_phone() == 'is-invalid' "> Error </div>
                   </div>
               </div>
             </form>
@@ -50,19 +50,20 @@
 
             <div class="search form-row">
                 <div class="col-md-12 mb-3">
-                    <label class="h4">Поиск по номеру телефона:</label>
+                    <label class="h4">Search by phone number:</label>
                     <input type="text" class="form-control" v-model="search_phone" required>
                 </div>
             </div>
+            <caption>Contact list</caption>
             <table class="table table-hover table-sm table-bordered">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">№:</th>
-                        <th scope="col">Имя:</th>
-                        <th scope="col">Телефон:</th>
-                        <th scope="col">Эмейл:</th>
-                        <th scope="col">Адрес:</th>
-                        <th scope="col">Действия:</th>
+                        <th scope="col">Name:</th>
+                        <th scope="col">Telephone:</th>
+                        <th scope="col">Email:</th>
+                        <th scope="col">Address:</th>
+                        <th scope="col">Action:</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,12 +74,12 @@
                         <td>{{item.email}}</td>
                         <td>{{item.address}}</td>
                         <td>
-                            <a href="#edit" @click="edit_item(index)" class="btn btn-sm btn-info">Редактировать</a>
-                            <a href="#delete" @click="delete_item(index)" class="btn btn-sm btn-danger">Удалить</a>
+                            <a href="#edit" @click="edit_item(index)" class="btn btn-sm btn-info">Edit</a>
+                            <a href="#delete" @click="delete_item(index)" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                     <tr v-if="!table.length">
-                        <td colspan="6">Данные еще не добавлены</td>
+                        <td colspan="6">No data added</td>
                     </tr>
                 </tbody>
             </table>
