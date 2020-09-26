@@ -41,7 +41,7 @@
                   <!-- /*** Сохранить ***/ -->
                   <div class="col-md-2 mb-3 d-flex flex-column">
                       <button class="btn btn-success mt-auto" v-if="check_valid_phone() !== 'is-invalid' && form_name !== '' && form_phone !== '' " @click="save_item()">Сохранить</button>
-                      <button class="btn btn-secondary mt-auto is-invalid" v-if="check_valid_phone() == 'is-invalid' ||  form_name == '' || form_phone == '' ">Нельзя сохранить</button>
+                      <button class="btn btn-secondary mt-auto is-invalid" v-if="check_valid_phone() == 'is-invalid' ||  form_name == '' || form_phone == '' ">Сохранить</button>
                       <div class="invalid-feedback w-100" v-if="check_valid_phone() == 'is-invalid' "> Ошибка </div>
                   </div>
               </div>
